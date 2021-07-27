@@ -31,7 +31,7 @@
                 <div class="person-description mt-2">
                   <button class="btn btn-accent"> City: {{tuber.city}} </button>
                   <button class="btn btn-accent"> Age: {{tuber.age}} </button>
-                  <button class="btn btn-accent"> Height: {{tuber.height}} </button>
+                  <button class="btn btn-accent"> Lang: {{tuber.language}} </button>
                 </div>
                 <div class="person-description mt-2">
                   <button class="btn btn-accent"> Solo: {{tuber.crew}} </button>
@@ -71,28 +71,31 @@
           <div class="card">
             <div class="card-body">
               <p class="text-left font-weight-bolder text-black-50">
-                Search Tubers
+                Search UTubers by:
               </p>
-              <form>
+              <form method="GET" action="{% url 'search' %}">
                 <div class="form-group">
-                  <select id="inputState" class="form-control">
+                  <select name="city" id="inputState" class="form-control">
                     <option selected disabled hidden>City</option>
-                    <option>...</option>
+                    {% for city in city_search %}
+                    <option value="{{city}}">{{city}}</option>
+                    {% endfor %}
                   </select>
                 </div>
                 <div class="form-group">
-                  <select id="inputState" class="form-control">
+                  <select  name="camera_type" id="inputState" class="form-control">
                     <option selected disabled hidden>Camera Type</option>
-                    <option>Value 1</option>
-                    <option>Value 2</option>
-                    <option>Value 3</option>
-                    <option>Value 4</option>
+                     {% for cam in camera_type_search %}
+                    <option value="{{cam}}">{{cam}}</option>
+                     {% endfor %}
                   </select>
                 </div>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select name="category" class="form-control">
                     <option selected disabled hidden>Category</option>
-                    <option>...</option>
+                      {% for cat in category_search %}
+                    <option value="{{cat}}">{{cat}}</option>
+                      {% endfor %}
                   </select>
                 </div>
 
