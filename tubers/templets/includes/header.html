@@ -2,12 +2,18 @@
     <div class="container">
       <div class="row ">
         <div class="col-md-6 header-info">
-          <a href="mailto:info@ytubers.com" class="mr-3">info@ytubers.com</a>
+          <a href="mailto:info@utubers.com" class="mr-3">info@utubers.com</a>
           <span>Call at: +91 9666633335 </span>
         </div>
         <div class="header-buttons col-md-6 d-flex justify-content-end">
-          <a class="btn btn-accent mr-3" href="/login.html">Signin</a>
-          <a class="btn btn-accent " href="/register.html">SignUp</a>
+          {% if user.is_authenticated %}
+
+          <a class="btn btn-accent " href="{% url 'logout' %}">sign out</a>
+
+          {% else %}
+          <a class="btn btn-accent mr-3" href="{% url 'login' %}">Signin</a>
+          <a class="btn btn-accent " href="{% url 'register' %}">SignUp</a>
+          {% endif %}
         </div>
       </div>
     </div>
