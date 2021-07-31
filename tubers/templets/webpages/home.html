@@ -57,7 +57,9 @@
         {% for fy in featured_youtubers %}
         <div class="card border-0 text-center ml-3 mr-3">
           <div class="feature-text">
-            <img src="{{fy.photo.url}}" class="card-img-top" alt="team-member">
+            <a href="{% url 'youtubers_detail' fy.id %}">
+                    <img src="{{fy.photo.url}}" class="card-img-top" alt="team-member">
+            </a>
             <span class="text-left bg-accent font-weight-bold">
               Featured
             </span>
@@ -107,7 +109,9 @@
       {% for at in all_tubers %}
         <div class="card border-0 text-center">
           <div>
-            <img src="{{at.photo.url}}" class="card-img-top" alt="team-member">
+            <a href="{% url 'youtubers_detail' at.id %}">
+                    <img src="{{at.photo.url}}" class="card-img-top" alt="team-member">
+                    </a>
 
           </div>
           <div class="card-body">
@@ -149,10 +153,10 @@
           <div class="card-body">
             <h5 class="card-title">{{team.first_name}} {{ team.last_name}}</h5>
             <p class="card-text">{{ team.role }}</p>
-            <a href="http://www.youtube.com" class="btn btn-accent btn-block">youtube</a>
+
             <div class="text-center mt-2">
               <a href="http://www.facebook.com"<button class="btn btn-accent"> <i class="fab fa-facebook-f fa-lg {{team.fb_link}} "></i></button></a>
-             <a href="http://www.linkedin.com" <button class="btn btn-accent"> <i class="fab fa-linkedin-in fa-lg{{team.linkedin_link}}"></i> </button></a>
+             <a href="http://www.linkedin.com"<button class="btn btn-accent"> <i class="fab fa-linkedin-in fa-lg {{team.linkedin_link}} "></i> </button></a>
             </div>
           </div>
         </div>
